@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
     return <div>
@@ -12,8 +13,9 @@ function Login() {
                 <label htmlFor="password"><strong>Password</strong></label>
                 <input type="password" placeholder="Enter Password"/>                
             </div>
-            <button><strong>Log in</strong></button><br></br><br></br>
-            <button>Create Account</button>
+                <button><strong>Log in</strong></button><br></br><br></br>
+                <Link className="btn btn-default bg-light  border w-100" to="/register">Sign Up</Link>
+            {/* <button>Create Account</button> */}
             </form>
             </div>
     </div>
