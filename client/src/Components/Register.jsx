@@ -1,13 +1,15 @@
 import React, {useState}from "react";
-import { Link } from "react-router-dom";
-import validation from "../LoginValidation";
+import { Link, useNavigate } from "react-router-dom";
+import validation from "../RegisterValidation";
+import axios from 'axios';
+
 function Register() {
     const [values, setValues] = useState({
         username: '',
         email: '',
         password: ''
       });
-    
+      const navigate = useNavigate();
       const [errors, setErrors] = useState({});
     
       const handleInput = (event) => {
@@ -15,10 +17,21 @@ function Register() {
       }
     
       const handleSubmit = (event) => {
-        event.preventDefault();
         console.log("Form data:", values);
-  
+        event.preventDefault();
         setErrors(validation(values));
+        const err = validation(values);
+        setErrors(err);
+      
+        if (typeof err.username === "undefined" && typeof err.email === "undefined" && typeof err.password === "undefined") {
+            console.log("utilizator trimis");
+            axios.post('http://localhost:8080/register', values)
+                .then(res => {
+                    navigate('/');
+                })
+                .catch(err => console.log(err));
+        }
+        
         
       }
     return <div>
