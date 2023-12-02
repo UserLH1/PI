@@ -14,11 +14,15 @@ const db = mysql.createConnection({
 })
 
 
-app.post('/register', (req, res) => {
-    const sql = "INSERT INTO user (`username`, `email`, `password`) VALUES (?, ?, ?)";
+app.post('/addItem', (req, res) => {
+
+    const sql = "INSERT INTO password (`user_id`,`folder_id`, `name`, `URL`, `username`,`password`) VALUES (?, ?, ?, ?, ?, ?)";
     const values = [
+        1,
+        1,
+        req.body.name,
+        req.body.URL,
         req.body.username,
-        req.body.email,
         req.body.password
     ];
     
@@ -26,11 +30,12 @@ app.post('/register', (req, res) => {
     
     db.query(sql, values, (err, data) => {
         if (err) {
-            return res.json("Error");
+            console.log("Error:" + err.message);
         }
         return res.json(data);
     });
 });
+
 app.post('/login', (req, res) => {
     const sql = "SELECT * FROM user WHERE `email`= ? AND `password` = ?";
    
@@ -48,6 +53,24 @@ app.post('/login', (req, res) => {
         else{
             return res.json("Fail");
         }
+    });
+});
+
+app.post('/register', (req, res) => {
+    const sql = "INSERT INTO user (`username`, `email`, `password`) VALUES (?, ?, ?)";
+    const values = [
+        req.body.username,
+        req.body.email,
+        req.body.password
+    ];
+    
+    console.log(values);
+    
+    db.query(sql, values, (err, data) => {
+        if (err) {
+            return res.json("Error");
+        }
+        return res.json(data);
     });
 });
 

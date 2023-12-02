@@ -1,3 +1,31 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.addItem{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 300px;
+  border-radius: 20px;
+  margin-top: 20px;
+  background-color: lightblue;
+
+}
+.addItem button, input{
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 7px;
+  margin: 10px;
+  padding-left: 15px;
+  font-size: 17px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -41,8 +69,9 @@ form input {
   display: block;
   text-align: center;
   font-size: 18px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: 300;
+  
 }
 
 form button {
@@ -67,4 +96,9 @@ a{
   border-radius: 3px;
   width: 250px;
   font-size: 18px;
+
+}
+button
+{
+  cursor: pointer;
 }
