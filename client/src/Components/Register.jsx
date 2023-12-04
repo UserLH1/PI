@@ -38,7 +38,8 @@ function Register() {
         }
     }
     return <div>
-    {errorMessage &&
+    {console.log(errorMessage)}
+    {errorMessage && //console.log("avem o eroare")
         <div className="custom-alert">
             <p>{errorMessage}</p>
             <button onClick={() => setErrorMessage('')}>Close</button>
