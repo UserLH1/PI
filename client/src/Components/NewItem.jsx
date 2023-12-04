@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import validation from "../PasswordValidation";
 import axios from 'axios';
 function NewItem() {
     const navigate = useNavigate();

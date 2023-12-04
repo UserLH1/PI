@@ -17,9 +17,18 @@ function Dashboard() {
         <tbody>
           {/* Example row, you will map over your data here */}
           <tr>
-            <td>example.com</td>
-            <td>user@example.com</td>
+            <td>facebook.com</td>
+            <td>lazeahoratiu@gmail.com</td>
             <td>••••••••</td>
+            <td>
+              <button className="btn btn-edit">Edit</button>
+              <button className="btn btn-delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>google.com</td>
+            <td>lazeahoratiu@gmail.com</td>
+            <td>••••••••••</td>
             <td>
               <button className="btn btn-edit">Edit</button>
               <button className="btn btn-delete">Delete</button>

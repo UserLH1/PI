@@ -72,7 +72,7 @@ app.post('/register', (req, res) => {
     bcrypt.hash(password, saltRounds, (err, hash) => {
         if (err) {
             console.log("Error hashing password:" + err.message);
-            return res.status(500).json(err.message);
+            return res.json(err.message);
         }
 
         const sql = "INSERT INTO user (`username`, `email`, `password`) VALUES (?, ?, ?)";
@@ -81,7 +81,7 @@ app.post('/register', (req, res) => {
         db.query(sql, values, (err, data) => {
             if (err) {
                 console.log("Error:" + err.message);
-                return res.status(500).json(err.message);
+                return res.json(err.message);
             }
             return res.json("Success");
         });
