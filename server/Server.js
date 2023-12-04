@@ -1,8 +1,11 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
-
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 const app = express();
+let user_id;
+
 app.use(cors());
 app.use(express.json());
 
@@ -15,11 +18,10 @@ const db = mysql.createConnection({
 
 
 app.post('/addItem', (req, res) => {
-
-    const sql = "INSERT INTO password (`user_id`,`folder_id`, `name`, `URL`, `username`,`password`) VALUES (?, ?, ?, ?, ?, ?)";
+    console.log(user_id);
+    const sql = "INSERT INTO password (`user_id`, `name`, `URL`, `username`,`password`) VALUES (?, ?, ?, ?, ?)";
     const values = [
-        1,
-        1,
+        user_id,
         req.body.name,
         req.body.URL,
         req.body.username,
@@ -37,40 +39,52 @@ app.post('/addItem', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    const sql = "SELECT * FROM user WHERE `email`= ? AND `password` = ?";
-   
-    console.log(req.body.email);
-    
-    db.query(sql, [req.body.email,req.body.password], (err, data) => {
-        console.log(data)
+    const { email, password } = req.body;
+    const sql = "SELECT * FROM user WHERE `email` = ?";
+    user_id
+    db.query(sql, [email], (err, data) => {
+        user_id = data[0].id;
+        // console.log(user_id);
+        // console.log(data);
         if (err) {
-            return res.json("Error");
+            return res.status(500).json("Error");
         }
-        if(data!=0)
-        {
-            return res.json("Succes");
-        }
-        else{
+        if(data.length > 0) {
+            bcrypt.compare(password, data[0].password, (err, result) => {
+                if (result) {
+                    // Passwords match
+                    return res.json("Success");
+                } else {
+                    // Passwords don't match
+                    return res.json("Fail");
+                }
+            });
+        } else {
             return res.json("Fail");
         }
     });
 });
 
 app.post('/register', (req, res) => {
-    const sql = "INSERT INTO user (`username`, `email`, `password`) VALUES (?, ?, ?)";
-    const values = [
-        req.body.username,
-        req.body.email,
-        req.body.password
-    ];
-    
-    console.log(values);
-    
-    db.query(sql, values, (err, data) => {
+    const { username, email, password } = req.body;
+
+    // Hash the password before storing it
+    bcrypt.hash(password, saltRounds, (err, hash) => {
         if (err) {
-            return res.json("Error");
+            console.log("Error hashing password:" + err.message);
+            return res.status(500).json(err.message);
         }
-        return res.json(data);
+
+        const sql = "INSERT INTO user (`username`, `email`, `password`) VALUES (?, ?, ?)";
+        const values = [username, email, hash]; // Use the hash instead of the password
+
+        db.query(sql, values, (err, data) => {
+            if (err) {
+                console.log("Error:" + err.message);
+                return res.status(500).json(err.message);
+            }
+            return res.json("Success");
+        });
     });
 });
 
