@@ -4,43 +4,46 @@
   justify-content: center;
   align-items: center;
 }
-.addItem{
+.addItem {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
-  height: 300px;
+  width: 50%;
+  min-height: 300px; /* Changed from height to min-height */
   border-radius: 20px;
   margin-top: 20px;
   background-color: lightblue;
-
+  padding: 20px; /* Add padding inside the container */
+  box-sizing: border-box; /* To include padding in the width calculation */
+  font-family: 'Arial', sans-serif;
 }
-.addItem button, input{
-  width: 300px;
+
+.addItem input {
+  width: 80%; /* Adjust width to not touch the container edges */
   height: 40px;
   border: none;
   border-radius: 7px;
-  margin: 10px;
-  padding-left: 15px;
+  margin: 10px 0; /* Only add margin top and bottom */
+  padding: 0 15px; /* Add padding inside the input fields */
+  font-size: 17px; 
+  margin-bottom: 20px;
+}
+
+.addItem button {
+  width: 80%; /* Adjust width to not touch the container edges */
+  height: 40px;
+  border: none;
+  border-radius: 7px;
+  margin: 10px 0; /* Only add margin top and bottom */
+  padding: 0 15px; /* Add padding inside the button */
   font-size: 17px;
+  background-color: #007bff; /* Example button color */
+  color: white; /* Text color for the button */
+  cursor: pointer; /* Changes cursor to pointer on hover */
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-weight: 300;
-}
 
-body {
-  font-family: "Source Sans Pro", sans-serif;
-  color: white;
-  font-weight: 300;
-  background: #50a3a2;
-  width: 100%;
-  height: 100%;
-}
 
 .container {
   margin: 10% auto;
@@ -53,14 +56,128 @@ body {
   font-size: 40px;
   font-weight: 200;
 }
-
-form {
-  padding: 20px 0;
+/* Updated styles for the custom alert */
+.custom-alert {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #50a3a2;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px auto;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
+
+.error-message {
+  background-color: #ffe6e6; /* Light red background for the error message */
+  color: #cc0000; /* Darker red color for error messages */
+  border-left: 4px solid #cc0000; /* Highlight color for the left border */
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: left;
+  position: relative;
+  bottom:10px;
+  top:10px;
+
+}
+
+
+.form-button {
+  appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: #50a3a2;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 18px;
+  margin-top: 10px;
+
+  
+}
+.dashboard-container {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.password-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+.password-table th,
+.password-table td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.password-table th {
+  background-color: #f9f9f93e;
+}
+
+.btn {
+  padding: 10px 15px;
+  margin-right: 5px; /* Spacing between buttons */
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn-edit {
+  background-color: #007bff; /* Blue */
+}
+
+.btn-delete {
+  background-color: #dc3545; /* Red */
+}
+
+.btn-edit:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
+.btn-delete:hover {
+  background-color: #c82333; /* Darker red */
+}
+
+
+.password-input-container {
+  position: relative; /* This enables absolute positioning for child elements */
+  width: 100%; /* Set to the desired width */
+}
+
+.password-input-container input {
+  width: 75%; /* Take full width of the container */
+  padding-right: 30px; /* Adjust the padding to prevent text from going under the icon */
+  /* Add other input styles as necessary */
+}
+
+.toggle-password-visibility {
+  position: absolute; /* Position the icon absolutely within the container */
+  top: 15px; /* Align the top of the icon with the top of the container */
+  right: 20px; /* Adjust the right position based on the container's size */
+  height: 100%; /* Make the icon's height match the input field */
+  display: flex; /* Use flex to center the icon vertically */
+  align-items: center;
+  cursor: pointer; /* Change the cursor to indicate the icon is clickable */
+  color: #000000;
+}
+
+
 form input {
-  border: 1px solid rgba(252, 252, 252, 0.4);
-  background-color: rgba(252, 252, 252, 0.2);
+  border: 1px solid rgba(219, 219, 219, 0.4);
+  background-color: rgba(255, 255, 255, 0.661);
   width: 250px;
   border-radius: 3px;
   font-family: "Source Sans Pro", sans-serif;
@@ -74,25 +191,14 @@ form input {
   
 }
 
-form button {
-  appearance: none;
-  outline: 0;
-  background-color: white;
-  border: 0;
-  padding: 10px 15px;
-  color: #50a3a2;
-  border-radius: 3px;
-  width: 250px;
-  font-size: 18px;
-  
-}
+
 a{
     appearance: none;
   outline: 0;
-  background-color: white;
   border: 0;
   padding: 10px 15px;
-  color: #50a3a2;
+  background-color: #007bff; /* Example button color */
+  color: white; /* Text color for the button */
   border-radius: 3px;
   width: 250px;
   font-size: 18px;
@@ -102,3 +208,30 @@ button
 {
   cursor: pointer;
 }
+label{
+  color:black;
+  margin-top: 20px ;
+}
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
+  font-weight: 300;
+  background: #50a3a2;
+  width: 100%;
+  height: 100%;
+}
+h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean, modern font */
+  font-size: 32px; /* Large but not too large */
+  font-weight: 300; /* Lighter weight for a modern look */
+  color: #333333; /* Dark color for readability, but not pure black */
+  letter-spacing: 1px; /* Spacing out the letters slightly */
+  text-transform: none; /* Normal text, not uppercase */
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 0.5em; /* Add some space below the heading */
+  padding-bottom: 0.25em; /* A little padding to separate from the underline */
+  border-bottom: 2px solid #007bff; /* A solid underline that matches the button color */
+  text-align: center; /* Center align the text */
+  display: block; /* Ensure it's a block-level element */
+}
+

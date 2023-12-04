@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../LoginValidation";
 import axios from "axios";
+import PasswordInput from "./PasswordInput";
 
 
 function Login() {
@@ -26,8 +27,10 @@ function Login() {
         axios.post('http://localhost:8080/login', values)
             .then(res => {
                 console.log(res.data)
-                if(res.data==="Succes")
-                navigate('/dashboard');
+                if(res.data==="Success")
+                {
+                  navigate('/dashboard');
+              }
                 else{
                     alert("Wrong credentials")
                 }
@@ -41,22 +44,26 @@ function Login() {
   
   
 
-    return <div>
-        <div ><h1>Login:</h1>
+    return <div className="App">
+        <div className='addItem'>
+          <h1>Login:</h1>
         <form action="" onSubmit={handleSubmit}>
             <div >
                 <label  htmlFor="email"><strong>Email</strong></label>
                 <input name='email' onChange= {handleInput} type="email" placeholder="Enter Email"/>
             </div>
-            {errors.email?<span className="text-danger">{errors.email}<br></br></span>:<span></span>}
-            <div >
+            {errors.email?<span className="error-message">{errors.email}<br></br></span>:<span></span>}
+            {/* <div >
                 <label htmlFor="password"><strong>Password</strong></label>
                 <input name="password"  onChange={handleInput} type="password" placeholder="Enter Password"/>                
+            </div> */}
+            <div>
+              <PasswordInput name="password" onChange={handleInput}/>
             </div>
-            {errors.password?<span style={{}}>{errors.password}<br></br></span>:<span></span>}
-                <button type="submit"><strong>Log in</strong></button><br></br><br></br>
-                <Link className="btn btn-default bg-light  border w-100" to="/register">Sign Up</Link>
-            {/* <button>Create Account</button> */}
+            {errors.password?<span className="error-message">{errors.password}<br></br></span>:<span></span>}
+                <button className="form-button" type="submit"><strong>Log in</strong></button><br></br>
+                <button className="form-button" ><Link to="/register">Sign Up</Link></button>
+            
             </form>
             </div>
     </div>

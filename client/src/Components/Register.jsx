@@ -1,62 +1,80 @@
-import React, {useState}from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../RegisterValidation";
 import axios from 'axios';
+import PasswordInput from "./PasswordInput";
 
 function Register() {
     const [values, setValues] = useState({
         username: '',
         email: '',
         password: ''
-      });
-      const navigate = useNavigate();
-      const [errors, setErrors] = useState({});
-    
-      const handleInput = (event) => {
+    });
+
+    const navigate = useNavigate();
+    const [errors, setErrors] = useState({});
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
-      }
-    
-      const handleSubmit = (event) => {
-        console.log("Form data:", values);
+    }
+
+    const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(validation(values));
         const err = validation(values);
         setErrors(err);
-      
+
         if (typeof err.username === "undefined" && typeof err.email === "undefined" && typeof err.password === "undefined") {
-            console.log("utilizator trimis");
             axios.post('http://localhost:8080/register', values)
                 .then(res => {
-                    navigate('/');
+                    if (res.data === "Success") {
+                        navigate('/');
+                    } else {
+                        setErrorMessage(`Email "${values.email}" is already taken`);
+                    }
                 })
                 .catch(err => console.log(err));
         }
-        
-        
-      }
+    }
     return <div>
-        <div ><h1>Registration:</h1>
-            <form onSubmit={handleSubmit} action="">
-            <div >
-                <label htmlFor="name"><strong>Username</strong></label>
+    {errorMessage &&
+        <div className="custom-alert">
+            <p>{errorMessage}</p>
+            <button onClick={() => setErrorMessage('')}>Close</button>
+        </div>
+    }
+    <div className="App">
+    <div className="addItem">
+        <h1>Registration:</h1>
+        <form onSubmit={handleSubmit} action="">
+            <div>
+                <label htmlFor="username"><strong>Username:</strong></label>
                 <input onChange={handleInput} name="username" type="text" placeholder="Enter Username"/>
-                {errors.username?<span className="text-danger">{errors.username}<br></br></span>:<span></span>}
+                {errors.username && <span className="error-message">{errors.username}</span>}
             </div>                
-            <div >
-                <label htmlFor="email"><strong>Email</strong></label>
+            <div>
+                <label htmlFor="email"><strong>Email:</strong></label>
                 <input onChange={handleInput} name="email" type="email" placeholder="Enter Email"/>
-                {errors.email?<span className="text-danger">{errors.email}<br></br></span>:<span></span>}
+                {errors.email && <span className="error-message">{errors.email}</span>}
             </div>
-            <div >
-                <label htmlFor="password"><strong>Password</strong></label>
+            {/* <div>
+                <label htmlFor="password"><strong>Password:</strong></label>
                 <input onChange={handleInput} name="password" type="password" placeholder="Enter Password"/>     
-                {errors.password?<span style={{}}>{errors.password}<br></br></span>:<span></span>}           
+                {errors.password && <span className="error-message">{errors.password}</span>}           
+            </div> */}
+            <div>
+                <PasswordInput name="password" onChange={handleInput}/>
+                {errors.password && <span className="error-message">{errors.password}</span>} 
             </div>
-            <button><strong>Sign up</strong></button><br></br><br></br>
-            <Link className="btn btn-default bg-light  border w-100" to="/">Login</Link>
-            </form>
-            </div>
+            <button className="form-button"><strong>Sign up</strong></button>
+            <button className="form-button"><Link to="/"><strong>Login</strong></Link></button>
+        </form>
     </div>
+    
+    </div>
+</div>
+
 
 }
 export default Register; 
