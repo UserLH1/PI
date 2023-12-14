@@ -1,9 +1,8 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Login from "./Login";
-import Register from "./Register";
-import Dashboard from "./Dashboard";
 import NewItem from "./NewItem";
+import Register from "./Register";
 
 function App() {
   // Implement your authentication logic here
@@ -13,9 +12,9 @@ function App() {
     <div className="container">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Login />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/dashboard' element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />} />
+          {/* <Route path='/dashboard' element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />} /> */}
           <Route path='/addItem' element={isLoggedIn ? <NewItem /> : <Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

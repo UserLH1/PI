@@ -1,7 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../LoginValidation";
-import axios from "axios";
 import PasswordInput from "./PasswordInput";
 
 
@@ -24,7 +24,7 @@ function Login() {
         setErrors(err);
       if (typeof err.email === "undefined" && typeof err.password === "undefined") {
         console.log("utilizator trimis");
-        axios.post('http://localhost:8080/login', values)
+        axios.post('http://localhost:3000/login', values)
             .then(res => {
                 console.log(res.data)
                 if(res.data==="Success")

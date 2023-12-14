@@ -1,7 +1,7 @@
+import axios from 'axios';
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../RegisterValidation";
-import axios from 'axios';
 import PasswordInput from "./PasswordInput";
 
 function Register() {
@@ -69,7 +69,7 @@ function Register() {
                 {errors.password && <span className="error-message">{errors.password}</span>} 
             </div>
             <button className="form-button"><strong>Sign up</strong></button>
-            <button className="form-button"><Link to="/"><strong>Login</strong></Link></button>
+            <button className="form-button"><Link to="/login"><strong>Login</strong></Link></button>
         </form>
     </div>
     
