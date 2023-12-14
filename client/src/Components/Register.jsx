@@ -1,7 +1,8 @@
+import axios from 'axios';
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../RegisterValidation";
-import axios from 'axios';
+import Header from "./Header";
 import PasswordInput from "./PasswordInput";
 
 function Register() {
@@ -38,7 +39,7 @@ function Register() {
         }
     }
     return <div>
-    
+    <div><Header /></div>
     {errorMessage && 
         <div className="custom-alert">
             <p>{errorMessage}</p>

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import Header from './Header';
 function NewItem() {
     const navigate = useNavigate();
     // const [errors, setErrors] = useState({});
@@ -34,6 +35,8 @@ function NewItem() {
         
       }
   return (
+    <div>
+      <div><Header /></div>
     <div className='App'>
         
         <div className='addItem'>  
@@ -50,7 +53,8 @@ function NewItem() {
             </form>
             
         </div>
-    </div>
+      </div>
+      </div>
   )
 }
 

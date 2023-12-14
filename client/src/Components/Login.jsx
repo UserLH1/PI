@@ -1,7 +1,8 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../LoginValidation";
-import axios from "axios";
+import Header from "./Header";
 import PasswordInput from "./PasswordInput";
 
 
@@ -44,7 +45,10 @@ function Login() {
   
   
 
-    return <div className="App">
+  return <div>
+    <div><Header /></div>
+    <div className="App">
+      
         <div className='addItem'>
           <h1>Login:</h1>
         <form action="" onSubmit={handleSubmit}>
@@ -67,6 +71,7 @@ function Login() {
             </form>
             </div>
     </div>
+  </div>
 
 }
 export default Login;
