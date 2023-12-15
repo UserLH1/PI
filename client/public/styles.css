@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap");
+
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Comfortaa";
 }
 .addItem {
   display: flex;
@@ -16,7 +19,7 @@
   background-color: lightblue;
   padding: 20px; /* Add padding inside the container */
   box-sizing: border-box; /* To include padding in the width calculation */
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .addItem input {
@@ -26,7 +29,7 @@
   border-radius: 7px;
   margin: 10px 0; /* Only add margin top and bottom */
   padding: 0 15px; /* Add padding inside the input fields */
-  font-size: 17px; 
+  font-size: 17px;
   margin-bottom: 20px;
 }
 
@@ -42,7 +45,6 @@
   color: white; /* Text color for the button */
   cursor: pointer; /* Changes cursor to pointer on hover */
 }
-
 
 .container h1 {
   font-size: 40px;
@@ -75,11 +77,9 @@
   font-size: 16px;
   text-align: left;
   position: relative;
-  bottom:10px;
-  top:10px;
-
+  bottom: 10px;
+  top: 10px;
 }
-
 
 .form-button {
   appearance: none;
@@ -92,12 +92,10 @@
   width: 250px;
   font-size: 18px;
   margin-top: 10px;
-
-  
 }
 .dashboard-container {
   padding: 20px;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .password-table {
@@ -143,7 +141,6 @@
   background-color: #c82333; /* Darker red */
 }
 
-
 .password-input-container {
   position: relative; /* This enables absolute positioning for child elements */
   width: 100%; /* Set to the desired width */
@@ -169,16 +166,16 @@
 /* Stiluri pentru containerul header */
 /* Stiluri pentru header */
 #main-header {
-  background-color: #175DDC;
-  color: #FFF;
+  background-color: #175ddc;
+  color: #fff;
   padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
+  font-family: "Comfortaa";
 }
-
 
 /* Stiluri pentru containerul din header */
 #header-container {
@@ -187,8 +184,8 @@
   align-items: center;
   justify-content: flex-start; /* Align items to the right */
 }
-#header-container a{
-margin-left: 30px;
+#header-container a {
+  margin-left: 30px;
 }
 
 /* Stiluri pentru logo */
@@ -198,7 +195,7 @@ margin-left: 30px;
 
 /* Stiluri pentru meniul de navigare */
 #main-nav a {
-  color: #FFF;
+  color: #fff;
   margin-right: 15px;
   text-decoration: none; /* Elimină sublinierea implicită */
 }
@@ -210,13 +207,12 @@ margin-left: 30px;
 
 /* Stilurile pentru fiecare buton de acțiune */
 #action-buttons a {
-  
   padding: 10px 10px;
-  background-color: #3498DB;
-  color: #FFF;
+  background-color: #3498db;
+  color: #fff;
   border-radius: 5px;
   text-decoration: none; /* Remove default underline */
-  margin-left: 10px; /* Optional: Add space between buttons */  
+  margin-left: 10px; /* Optional: Add space between buttons */
 }
 
 /* Spațierea între butoane */
@@ -242,12 +238,10 @@ form input {
   font-size: 18px;
   color: rgb(0, 0, 0);
   font-weight: 300;
-  
 }
 
-
-.link{
-    appearance: none;
+.link {
+  appearance: none;
   outline: 0;
   border: 0;
   padding: 10px 15px;
@@ -256,16 +250,14 @@ form input {
   border-radius: 3px;
   width: 250px;
   font-size: 18px;
-
 }
 
-button
-{
+button {
   cursor: pointer;
 }
-label{
-  color:black;
-  margin-top: 20px ;
+label {
+  color: black;
+  margin-top: 20px;
 }
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -277,7 +269,7 @@ body {
   margin: 0;
 }
 h1 {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean, modern font */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Clean, modern font */
   font-size: 32px; /* Large but not too large */
   font-weight: 300; /* Lighter weight for a modern look */
   color: #333333; /* Dark color for readability, but not pure black */
@@ -290,4 +282,3 @@ h1 {
   text-align: center; /* Center align the text */
   display: block; /* Ensure it's a block-level element */
 }
-
