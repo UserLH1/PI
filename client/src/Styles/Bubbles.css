@@ -29,6 +29,8 @@
   height: var(--size);
   border-radius: var(--size);
   animation-timing-function: ease-in-out;
+  
+  
 }
 
 #bubbles.show .bubbles__first {

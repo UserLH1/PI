@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Contact from "./Contact";
 import Dashboard from "./Dashboard";
 import Home from "./Home";
@@ -8,13 +8,17 @@ import Migrate from "./Migrate";
 import NewItem from "./NewItem";
 import PasswordGenerator from "./PasswordGenerator";
 import Register from "./Register";
+import { BubblyContainer } from "react-bubbly-transitions";
+
 function App() {
   const isLoggedIn = true; // Replace this with your actual authentication logic
 
   return (
     <div className="container">
       <BrowserRouter>
+      <BubblyContainer />
         <Routes>
+        
           <Route path="/" element={<Home />} />
           <Route path="/password-generator" element={<PasswordGenerator />} />
           <Route

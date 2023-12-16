@@ -1,38 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+// import { Link } from "react-router-dom";
+import { BubblyLink } from "react-bubbly-transitions";
+const MyBubblyLink = ({ to = "", text = "", imageSrc = "" }) => (
+  <BubblyLink to={to} colorStart="#175DDC" colorEnd="#2B2B2B">
+    {imageSrc && <img src={imageSrc} alt="Icon" id="logo" />} 
+    {text}
+  </BubblyLink>
+);
 const Header = () => {
   return (
     <header id="main-header">
       <div id="header-container">
         {/* Logo */}
-        <a href="/">
-          <img src="/Icons/lock3.png" alt="Logo" id="logo" href="google.com" />{" "}
-        </a>
+        <MyBubblyLink to="/" imageSrc="/Icons/lock3.png">
+          
+        </MyBubblyLink>
         {/* Navigation */}
         <nav id="main-nav">
-          <Link to="/password-generator" id="nav-password-gen">
-            Password Generator
-          </Link>
-          <Link to="/password-strength-test" id="nav-password-test">
-            Password Strength Test
-          </Link>
-          <Link to="/migrate" id="nav-migrate">
-            Migrate
-          </Link>
-          <Link to="/contact" id="nav-contact">
-            Contact
-          </Link>
+          <MyBubblyLink to="/password-generator" text="Password Generator" />
+          <MyBubblyLink
+            to="/password-strength-test"
+            text=" Password Strength Test"
+          />
+          <MyBubblyLink to="/migrate" text="Migrate" />
+          
+          <MyBubblyLink to="/contact" text="Contact" />
         </nav>
 
         {/* Action Buttons */}
         <div id="action-buttons">
-          <Link to="/login" id="login-btn">
-            Log In
-          </Link>
-          <Link to="/register" id="register-btn">
-            Register
-          </Link>
+          <MyBubblyLink to="/login" text="Log In" id="login-btn" />
+          <MyBubblyLink to="/register" text="Register" id="register-btn" />
         </div>
       </div>
     </header>

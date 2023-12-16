@@ -35,7 +35,7 @@ function Register() {
         .post("http://localhost:8080/register", values)
         .then((res) => {
           if (res.data === "Success") {
-            navigate("/");
+            navigate("/login");
           } else {
             setErrorMessage(`Email "${values.email}" is already taken`);
           }

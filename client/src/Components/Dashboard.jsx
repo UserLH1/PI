@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 function Dashboard() {
   return (
+    <div>
+      <Header />
     <div className="dashboard-container">
       {/* Table for passwords */}
       <table className="password-table">
@@ -15,25 +18,7 @@ function Dashboard() {
           </tr>
         </thead>
         <tbody>
-          {/* Example row, you will map over your data here */}
-          <tr>
-            <td>facebook.com</td>
-            <td>lazeahoratiu@gmail.com</td>
-            <td>••••••••</td>
-            <td>
-              <button className="btn btn-edit">Edit</button>
-              <button className="btn btn-delete">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>google.com</td>
-            <td>lazeahoratiu@gmail.com</td>
-            <td>••••••••••</td>
-            <td>
-              <button className="btn btn-edit">Edit</button>
-              <button className="btn btn-delete">Delete</button>
-            </td>
-          </tr>
+         
         </tbody>
       </table>
 
@@ -42,6 +27,7 @@ function Dashboard() {
         <Link className="btn btn-default bg-light border w-100 my-2" to="../addItem">Add Password</Link>
         {/* You can duplicate the above line and change the className and to properties to create Edit and Delete buttons */}
       </div>
+    </div>
     </div>
   )
 }
