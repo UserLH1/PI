@@ -19,7 +19,7 @@ export const BubblyLink: FC<BubblyLinkProps> = ({
   imageSrc,
   colorStart="#175DDC",
   colorEnd="#2B2B2B",
-  duration = 1250,
+  duration = 10000,
 }) => {
   const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ export const BubblyLink: FC<BubblyLinkProps> = ({
         <BubblyBubbles
           colorStart={colorStart}
           colorEnd={colorEnd}
-          duration={duration}
+          duration={3000}
         />
       );
 

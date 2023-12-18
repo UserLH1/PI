@@ -29,8 +29,6 @@
   height: var(--size);
   border-radius: var(--size);
   animation-timing-function: ease-in-out;
-  
-  
 }
 
 #bubbles.show .bubbles__first {
@@ -62,5 +60,22 @@
   100% {
     translate: -50% 0;
     border-radius: 0;
+    margin-top: 130px;
   }
+}
+@keyframes in-keyframes {
+  0% {
+    opacity: 0;
+    translate: 0 25%;
+  }
+ 
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+.animate-in {
+  animation-name: in-keyframes;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
 }

@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import zxcvbn from "zxcvbn";
 const PasswordStrnghtMeter = ({ password }) => {

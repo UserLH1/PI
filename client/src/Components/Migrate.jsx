@@ -7,7 +7,7 @@ function Migrate() {
       <div>
         <Header />
       </div>
-      ;
+      
     </div>
   );
 }
