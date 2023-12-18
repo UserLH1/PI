@@ -2,6 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+// window.addEventListener("beforeunload", (event) => {
+//   event.preventDefault();
+//   event.returnValue = "";
+// });
+
 function NewItem() {
   const navigate = useNavigate();
   // const [errors, setErrors] = useState({});
