@@ -7,6 +7,9 @@
   align-items: center;
   font-family: "Comfortaa";
 }
+
+/* Add item */
+
 .addItem {
   display: flex;
   flex-direction: column;
@@ -180,7 +183,7 @@
   border-radius: var(--bs-progress-border-radius);
 }
 /* //////////////////Header//////////////////////// */
-/* Stiluri pentru containerul header */
+
 /* Stiluri pentru header */
 #main-header {
   background-color: #175ddc;
@@ -198,8 +201,8 @@
 #header-container {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   align-items: center;
-  justify-content: flex-start; /* Align items to the right */
 }
 #header-container a {
   margin-left: 30px;
@@ -211,10 +214,10 @@
 }
 
 /* Stiluri pentru meniul de navigare */
-#main-nav a {
-  color: #fff;
-  margin-right: 15px;
-  text-decoration: none; /* Elimină sublinierea implicită */
+#main-nav {
+  align-items: center;
+  display: flex;
+  gap: 20px;
 }
 
 #action-buttons {
@@ -223,7 +226,7 @@
 }
 
 /* Stilurile pentru fiecare buton de acțiune */
-#action-buttons a {
+#action-buttons button {
   padding: 10px 10px;
   background-color: #3498db;
   color: #fff;
@@ -233,16 +236,16 @@
 }
 
 /* Spațierea între butoane */
-#action-buttons a:not(:last-child) {
+#action-buttons button:not(:last-child) {
   margin-right: 10px;
 }
 
 /* Hover effect pentru butoane */
-#action-buttons a:hover {
+#action-buttons button:hover {
   opacity: 0.8;
 }
 
-form input {
+/* form input {
   border: 1px solid rgba(219, 219, 219, 0.4);
   background-color: rgba(255, 255, 255, 0.661);
   width: 250px;
@@ -255,7 +258,7 @@ form input {
   font-size: 18px;
   color: rgb(0, 0, 0);
   font-weight: 300;
-}
+} */
 
 .link {
   appearance: none;
@@ -278,7 +281,6 @@ label {
 }
 body {
   font-family: "Source Sans Pro", sans-serif;
-  color: white;
   font-weight: 300;
   background: #000000d4;
   width: 100%;

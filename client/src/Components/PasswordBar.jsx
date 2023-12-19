@@ -5,7 +5,7 @@ function PasswordBar() {
 
   return (
     <div className="container">
-      <div className="col-md06 mx-auto">
+      <div className="col-md06 mx-auto text-right">
         <div className="form-group">
           <input
             onChange={(e) => setPassword(e.target.value)}
