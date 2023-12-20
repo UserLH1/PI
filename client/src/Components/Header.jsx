@@ -17,8 +17,12 @@ const Header = () => {
         id="header-container"
       >
         {/* Logo */}
-        <MyBubblyLink to="/" imageSrc="/Icons/lock3.png"></MyBubblyLink>
-        <MyBubblyLink to="/" text="LockBox"></MyBubblyLink>
+        <span id="logo">
+          {" "}
+          <MyBubblyLink to="/" imageSrc="/Icons/lock3.png"></MyBubblyLink>
+          <MyBubblyLink to="/" text="LockBox"></MyBubblyLink>
+        </span>
+
         {/* Navigation */}
         <nav id="main-nav">
           <MyBubblyLink to="/password-generator" text="Password Generator" />

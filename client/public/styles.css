@@ -211,6 +211,11 @@
 /* Stiluri pentru logo */
 #logo {
   max-width: 100px; /* Ajustează dimensiunea la nevoie */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 20px;
 }
 
 /* Stiluri pentru meniul de navigare */
