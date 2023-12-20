@@ -13,7 +13,7 @@ const PasswordStrnghtMeter = ({ password }) => {
   //   console.log(testResult.feedback.suggestions[i]);
   // }
   // console.log(sugestions);
-  console.log(testResult.feedback.warning);
+  //console.log(testResult.feedback.warning);
   const createPassLabel = () => {
     switch (testResult.score) {
       case 0:

@@ -1,13 +1,12 @@
-import { FC, MouseEvent, ReactNode } from "react";
+import React, { FC, MouseEvent, ReactNode } from 'react';
 import { createRoot } from "react-dom/client";
 import { useNavigate } from "react-router-dom";
 import { BubblyBubbles } from "./BubblyBubbles";
-import React from 'react';
 
 export type BubblyLinkProps = {
   to: string;
   children: ReactNode;
-  imageSrc: string; // Image source path
+  imageSrc: string; 
   colorStart?: string;
   colorEnd?: string;
   duration?: number;

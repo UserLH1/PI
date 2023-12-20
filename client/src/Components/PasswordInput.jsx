@@ -1,9 +1,10 @@
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import PasswordStrnghtMeter from "./PasswordStrnghtMeter";
-const PasswordInput = ({ name, onChange }) => {
+const PasswordInput = ({ name, handleInput, password     }) => {
+  
   const [visible, setVisible] = useState(false);
-  const [password, setPassword] = useState();
+  //const [password, setPassword] = useState();
 
   return (
     <div className="password-input-container">
@@ -13,7 +14,7 @@ const PasswordInput = ({ name, onChange }) => {
       <input
         type={visible ? "text" : "password"}
         name={name}
-        onChange={(onChange, (e) => setPassword(e.target.value))}
+        onChange={(e) => handleInput(e)}
         placeholder="Enter password"
       />
       <span

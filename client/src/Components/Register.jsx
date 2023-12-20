@@ -17,11 +17,13 @@ function Register() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleInput = (event) => {
+    console.log(event.target.name + " " + event.target.value);
     setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("s-a trimis" + values);
     setErrors(validation(values));
     const err = validation(values);
     setErrors(err);
@@ -63,7 +65,7 @@ function Register() {
                 <strong>Username:</strong>
               </label>
               <input
-                onChange={handleInput}
+                onChange={(e) => handleInput(e)}
                 name="username"
                 type="text"
                 placeholder="Enter Username"
@@ -92,7 +94,11 @@ function Register() {
                 {errors.password && <span className="error-message">{errors.password}</span>}           
             </div> */}
             <div>
-              <PasswordInput name="password" onChange={handleInput} />
+              <PasswordInput
+                name="password"
+                handleInput={handleInput}
+                password={values.password}
+              />
               {errors.password && (
                 <span className="error-message">{errors.password}</span>
               )}
