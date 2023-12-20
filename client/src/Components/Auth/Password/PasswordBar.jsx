@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PasswordStrnghtMeter from "./PasswordStrnghtMeter";
+import PasswordStrnghtMeter from "../../PasswordStrnghtMeter";
 function PasswordBar() {
   const [password, setPassword] = useState();
 

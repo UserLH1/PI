@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import validation from "../LoginValidation";
-import Header from "./Header";
-import PasswordInput from "./PasswordInput";
+import validation from "../../LoginValidation";
+import Header from "../Header";
+import PasswordInput from "./Password/PasswordInput";
 
 function Login() {
   const [values, setValues] = useState({
@@ -76,7 +76,11 @@ function Login() {
                 <input name="password"  onChange={handleInput} type="password" placeholder="Enter Password"/>                
             </div> */}
             <div>
-              <PasswordInput name="password" onChange={handleInput} />
+              <PasswordInput
+                name="password"
+                handleInput={handleInput}
+                password={values.password}
+              />
             </div>
             {errors.password ? (
               <span className="error-message">

@@ -1,14 +1,14 @@
 import React from "react";
 import { BubblyContainer } from "react-bubbly-transitions";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Contact from "./Contact";
-import Dashboard from "./Dashboard";
-import Home from "./Home";
-import Login from "./Login";
-import Migrate from "./Migrate";
-import NewItem from "./NewItem";
-import PasswordGenerator from "./PasswordGenerator";
-import Register from "./Register";
+import Login from "./Components/Auth/Login";
+import Register from "./Components/Auth/Register";
+import NewItem from "./Components/NewItem";
+import Contact from "./Pages/Contact";
+import Dashboard from "./Pages/Dashboard";
+import Home from "./Pages/Home/Home";
+import Migrate from "./Pages/Migrate";
+import PasswordGenerator from "./Pages/PasswordGenerator";
 
 function App() {
   const isLoggedIn = true; // Replace this with your actual authentication logic

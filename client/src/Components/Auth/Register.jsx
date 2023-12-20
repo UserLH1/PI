@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import validation from "../RegisterValidation";
-import Header from "./Header";
-import PasswordInput from "./PasswordInput";
+import validation from "../../RegisterValidation";
+import Header from "../Header";
+import PasswordInput from "./Password/PasswordInput";
 
 function Register() {
   const [values, setValues] = useState({

@@ -18,6 +18,7 @@ const Header = () => {
       >
         {/* Logo */}
         <MyBubblyLink to="/" imageSrc="/Icons/lock3.png"></MyBubblyLink>
+        <MyBubblyLink to="/" text="LockBox"></MyBubblyLink>
         {/* Navigation */}
         <nav id="main-nav">
           <MyBubblyLink to="/password-generator" text="Password Generator" />

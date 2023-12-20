@@ -1,15 +1,14 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../Components/Header";
 
-function Migrate() {
+function Contact() {
   return (
     <div>
       <div>
         <Header />
       </div>
-      
     </div>
   );
 }
 
-export default Migrate;
+export default Contact;

@@ -1,8 +1,7 @@
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import PasswordStrnghtMeter from "./PasswordStrnghtMeter";
-const PasswordInput = ({ name, handleInput, password     }) => {
-  
+const PasswordInput = ({ name, handleInput, password }) => {
   const [visible, setVisible] = useState(false);
   //const [password, setPassword] = useState();
 
