@@ -19,7 +19,10 @@ const Header = () => {
         {/* Logo */}
         <span id="logo">
           {" "}
-          <MyBubblyLink to="/" imageSrc="/Icons/lock3.png"></MyBubblyLink>
+          <MyBubblyLink
+            to="/"
+            imageSrc="/Icons/logo_fara_back.png"
+          ></MyBubblyLink>
           <MyBubblyLink to="/" text="LockBox"></MyBubblyLink>
         </span>
 

@@ -1,0 +1,54 @@
+/* Showcasing.css */
+.showcasing-section {
+  background-color: #002b5b; /* Adjust the color to match your screenshot */
+  color: white;
+  padding-left: 20px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lock-icon {
+  width: 100%;
+}
+.image-section {
+  width: 80%; /* Make the image fill the container width */
+  height: 80%; /* Make the image fill the container height */
+  object-fit: contain; /* Preserve aspect ratio and fit within the container */
+  position: relative;
+  right: 50px;
+}
+
+.showcasing-section h2 {
+  font-size: 2.5rem; /* Adjust size as needed */
+  margin-bottom: 20px;
+}
+
+.showcasing-section p {
+  font-size: 1rem; /* Adjust size as needed */
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.text-content {
+  color: #fff; /* Text color */
+  position: relative;
+  right: 90px;
+  padding: 20px; /* Padding around the content */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.text-content h2 {
+  /* Heading font size */
+  margin-bottom: 10px; /* Space below the heading */
+}
+
+.text-content p {
+  font-size: 1.1em; /* Paragraph font size */
+  line-height: 1.6; /* Line height for better readability */
+}
+
+.text-content b {
+  color: #ffffff; /* Color for bold text */
+  font-size: 1.1em;
+}
