@@ -9,7 +9,7 @@
     url("C:\My Files\Facultate\pi\PI\client\public\Icons\3820574.jpg");
   background-size: cover;
   background-position: center;
-  height: 85vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,4 +45,9 @@
 
 .hero-button:hover {
   background-color: #2980b9; /* Change button color on hover */
+}
+
+.heading-section {
+  padding: 20px 0; /* Add padding top and bottom as needed */
+  text-align: center; /* Center align the text */
 }

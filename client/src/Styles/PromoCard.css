@@ -1,19 +1,65 @@
+/* PromoCard.css */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 45px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1%;
+  margin: 3%;
+}
+
+/* Updated card styles */
 .card {
   background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
-  width: 240px;
-  margin: 16px;
-  float: left;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-bottom: 20px;
+  flex: calc(25% - 20px); /* Three columns with a gap of 20px */
+  max-width: calc(33.33% - 20px); /* Adjusted maximum width for three columns */
 }
-.card h1 {
-  font-size: 1.1em;
-  margin-bottom: 6px;
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-.card p {
-  font-size: 1.1em;
+
+/* Container for the card content */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text content */
+}
+
+/* Image style */
+.card-image {
+  border-radius: 5px; /* Optional: Add a border radius to the image */
+  margin-bottom: 15px;
+  max-width: 20%;
+}
+
+/* Container for the text content */
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title style */
+.card-title {
+  font-size: 1.5em;
   margin-bottom: 10px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  color: #333; /* Adjust the title color */
+}
+
+/* Content style */
+.card-description {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: #666; /* Adjust the content color */
+  line-height: 1.4;
 }
