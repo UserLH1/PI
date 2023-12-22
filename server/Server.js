@@ -73,8 +73,8 @@ app.post("/login", (req, res) => {
     if (data.length > 0) {
       bcrypt.compare(password, data[0].password, (err, response) => {
         if (response) {
-          req.session.user = data;
-          console.log(req.session.user);
+          req.session.username = data;
+          console.log(req.session.username);
           // Passwords match
           return res.json("Success");
         } else {
@@ -89,8 +89,8 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  if (req.session.user) {
-    res.send({ loggedIn: true, user: req.session.user });
+  if (req.session.username) {
+    res.send({ loggedIn: true, username: req.session.username });
   } else {
     res.send({ loggedIn: false });
   }

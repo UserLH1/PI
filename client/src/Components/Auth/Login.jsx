@@ -14,6 +14,7 @@ function Login() {
   });
 
   const [errors, setErrors] = useState({});
+  const [loginStatus, setLoginStatus] = useState("");
   const navigate = useNavigate();
   const handleInput = (event) => {
     setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
@@ -47,6 +48,8 @@ function Login() {
   useEffect(() => {
     axios.get("http://localhost:8080/login").then((response) => {
       console.log(response);
+      if(response.data.loggedIn == true)
+      setLoginStatus(response.data.username[0].username);
     });
   }, []);
   return (
