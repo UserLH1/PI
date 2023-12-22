@@ -21,7 +21,7 @@ function HeroSection() {
           manager.
         </p>
 
-        <a class="hero-button">
+        <a className="hero-button">
           <MyBubblyLink to="/register" text="Get Started"></MyBubblyLink>
         </a>
       </div>

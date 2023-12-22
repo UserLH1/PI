@@ -2,13 +2,34 @@ const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 const saltRounds = 10;
 const app = express();
 let user_id;
-
-app.use(cors());
 app.use(express.json());
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(
+  session({
+    key: "userID",
+    secret: "This is my seceret for the cookies 1234",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expries: 60 * 60,
+    },
+  })
+);
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -50,8 +71,10 @@ app.post("/login", (req, res) => {
       return res.status(500).json("Error");
     }
     if (data.length > 0) {
-      bcrypt.compare(password, data[0].password, (err, result) => {
-        if (result) {
+      bcrypt.compare(password, data[0].password, (err, response) => {
+        if (response) {
+          req.session.user = data;
+          console.log(req.session.user);
           // Passwords match
           return res.json("Success");
         } else {
@@ -63,6 +86,14 @@ app.post("/login", (req, res) => {
       return res.json("Fail");
     }
   });
+});
+
+app.get("/login", (req, res) => {
+  if (req.session.user) {
+    res.send({ loggedIn: true, user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
 });
 
 app.post("/register", (req, res) => {
