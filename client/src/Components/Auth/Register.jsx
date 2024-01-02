@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../../RegisterValidation";
 import Header from "../Header";
@@ -15,7 +15,6 @@ function Register() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
-
   const handleInput = (event) => {
     console.log(event.target.name + " " + event.target.value);
     setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
@@ -45,6 +44,15 @@ function Register() {
         .catch((err) => console.log(err));
     }
   };
+  useEffect(() => {
+    axios.get("http://localhost:8080/register").then((response) => {
+      console.log(response);
+      if(response.data.loggedIn === true)
+             navigate('/dashboard   ');
+      
+    
+    });
+  });
   return (
     <div>
       <div>
