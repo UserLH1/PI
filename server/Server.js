@@ -99,7 +99,6 @@ app.get("/login", (req, res) => {
 app.post("/register", (req, res) => {
   const { username, email, password } = req.body;
 
-  // Hash the password before storing it
   bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) {
       console.log("Error hashing password:" + err.message);
@@ -119,6 +118,15 @@ app.post("/register", (req, res) => {
     });
   });
 });
+
+app.get("/register", (req, res) => {
+  if (req.session.username) {
+    res.send({ loggedIn: true, username: req.session.username });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
+
 
 app.listen(8080, () => {
   console.log("listenting");
