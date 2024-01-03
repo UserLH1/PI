@@ -23,27 +23,40 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("s-a trimis" + values);
-    setErrors(validation(values));
-    const err = validation(values);
-    setErrors(err);
-
+    const validationErrors = validation(values);
+    setErrors(validationErrors);
+  
     if (
-      typeof err.username === "undefined" &&
-      typeof err.email === "undefined" &&
-      typeof err.password === "undefined"
+      typeof validationErrors.username === "undefined" &&
+      typeof validationErrors.email === "undefined" &&
+      typeof validationErrors.password === "undefined"
     ) {
       axios
         .post("http://localhost:8080/register", values)
         .then((res) => {
-          if (res.data === "Success") {
+          // Redirect to login page if registration was successful
+          if (res.status === 200) {
             navigate("/login");
-          } else {
-            setErrorMessage(`Email "${values.email}" is already taken`);
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          // Handle errors if the request failed to send
+          if (err.response) {
+            // The server responded with a status code outside the 2xx range
+            // Display the error message from the server
+            setErrorMessage(err.response.data.message);
+          } else if (err.request) {
+            // The request was made but no response was received
+            setErrorMessage("No response from server. Please try again later.");
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            setErrorMessage("Error: " + err.message);
+          }
+          console.log(err.config);
+        });
     }
   };
+  
   useEffect(() => {
     axios.get("http://localhost:8080/register").then((response) => {
       console.log(response);
