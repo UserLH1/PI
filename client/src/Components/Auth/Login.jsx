@@ -32,7 +32,7 @@ function Login() {
       console.log("utilizator trimis");
       axios
         .post("http://localhost:8080/login", values)
-        .then((res) => {
+        .then((res) => {  
           console.log(res.data);
           if (res.data === "Success") {
             navigate("/dashboard");
