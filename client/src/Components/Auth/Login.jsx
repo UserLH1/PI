@@ -45,13 +45,13 @@ function Login() {
 
     setErrors(validation(values));
   };
-  
+
   useEffect(() => {
     axios.get("http://localhost:8080/login").then((response) => {
       console.log(response);
-      if(response.data.loggedIn === true){
-      setLoginStatus(response.data.username[0].username);
-        navigate('/dashboard');
+      if (response.data.loggedIn === true) {
+        setLoginStatus(response.data.username[0].username);
+        navigate("/dashboard");
       }
     });
   });
@@ -114,9 +114,7 @@ function Login() {
       </div>
       <h1>{loginStatus}</h1>
     </div>
-    
   );
-  
 }
 
 export default Login;

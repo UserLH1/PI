@@ -25,7 +25,7 @@ function Register() {
     console.log("s-a trimis" + values);
     const validationErrors = validation(values);
     setErrors(validationErrors);
-  
+
     if (
       typeof validationErrors.username === "undefined" &&
       typeof validationErrors.email === "undefined" &&
@@ -34,36 +34,36 @@ function Register() {
       axios
         .post("http://localhost:8080/register", values)
         .then((res) => {
-          // Redirect to login page if registration was successful
+          // Check if the registration was successful
           if (res.status === 200) {
-            navigate("/login");
+            // Display the verification message
+            setErrorMessage(
+              "Please verify your email address for mail confirmation"
+            );
+
+            // Wait a few seconds, then navigate to the login page
+            setTimeout(() => {
+              navigate("/login");
+            }, 5000); // 5000 milliseconds = 5 seconds
           }
         })
         .catch((err) => {
-          // Handle errors if the request failed to send
+          // Handle errors
           if (err.response) {
-            // The server responded with a status code outside the 2xx range
-            // Display the error message from the server
             setErrorMessage(err.response.data.message);
           } else if (err.request) {
-            // The request was made but no response was received
             setErrorMessage("No response from server. Please try again later.");
           } else {
-            // Something happened in setting up the request that triggered an Error
             setErrorMessage("Error: " + err.message);
           }
           console.log(err.config);
         });
     }
   };
-  
   useEffect(() => {
     axios.get("http://localhost:8080/register").then((response) => {
       console.log(response);
-      if(response.data.loggedIn === true)
-             navigate('/dashboard   ');
-      
-    
+      if (response.data.loggedIn === true) navigate("/dashboard   ");
     });
   });
   return (
