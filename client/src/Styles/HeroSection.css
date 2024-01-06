@@ -6,7 +6,7 @@
       rgba(0, 0, 0, 0.9),
       rgba(8, 83, 156, 0.9)
     ),
-    url("E:\Horatiu\Faculta\PI\PI\client\public\Icons\3820574.jpg");
+    url("../../public/Icons/3820574.jpg");
   background-size: cover;
   background-position: center;
   height: 90vh;
