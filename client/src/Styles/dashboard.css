@@ -5,7 +5,7 @@
   
   .email-verification-alert {
     position: absolute; /* Position it relative to its nearest positioned ancestor or to the body */
-    top: 10px; /* Distance from the top of the viewport */
+    bottom: 20px; /* Distance from the top of the viewport */
     right: 10px; /* Distance from the right of the viewport */
     padding: 8px 16px;
     background-color: #ffcc00; /* A noticeable color */

@@ -48,11 +48,22 @@ async function sendMail(email, username) {
     const mailOptions = {
       from: "Lock Box <lazeahoratiu@gmail.com>",
       to: email,
-      subject: "Please confirm your email address",
-      html: `<h1>Email Confirmation</h1>
-             <h2>Hello ${username}</h2>
-             <p>Thank you for registering. Please confirm your email by clicking on the following link</p>
-             <a href="http://localhost:8080/confirm/${encodedEmail}">Click here</a>`,
+      subject: "Please Confirm Your Email Address",
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #444;">
+          <h1 style="color: #0d6efd;">Welcome to Lock Box!</h1>
+          <h2>Hello ${username},</h2>
+          <p>Thank you for signing up with Lock Box. We're thrilled to have you with us!</p>
+          <p>Please confirm your email address to get started with securing your digital life.</p>
+          <a href="http://localhost:8080/confirm/${encodedEmail}" 
+             style="background-color: #0d6efd; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+            Confirm Email
+          </a>
+          <p>If you did not sign up for a Lock Box account, please ignore this email or <a href="mailto:support@lockbox.com">contact support</a>.</p>
+          <p style="margin-top: 20px;">Cheers,</p>
+          <p>The Lock Box Team</p>
+        </div>
+      `,
     };
 
     const result = await transport.sendMail(mailOptions);
@@ -234,12 +245,14 @@ app.get("/confirm/:encodedEmail", async (req, res) => {
         return res.status(404).send("User not found.");
       }
 
-      res.send("Email successfully verified.");
+      // Redirect to the email-verified route in the React app
+      res.redirect('http://localhost:3000/email-verified');
     });
   } catch (error) {
     res.status(400).send("Invalid or expired link.");
   }
 });
+
 
 app.post("/logout", (req, res) => {
   if (req.session) {

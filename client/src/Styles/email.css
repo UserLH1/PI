@@ -1,0 +1,51 @@
+/* email.css */
+.email-verified-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .email-verified-content {
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .email-verified-header {
+    font-size: 2rem;
+    color: #0d6efd;
+    margin-bottom: 1rem;
+  }
+  
+  .email-verified-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+/* Add this to email.css */
+.email-verified-button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none; /* In case you use an <a> tag */
+    transition: background-color 0.3s;
+  }
+  
+  .email-verified-button:hover {
+    background-color: #0b5ed7;
+  }
+    

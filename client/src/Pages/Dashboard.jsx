@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import "../Styles/dashboard.css";
 
 function Dashboard() {
   const [isEmailVerified, setIsEmailVerified] = useState(null);
   const [showAlert, setShowAlert] = useState(true); // State to control the visibility of the alert
+
+  const navigate = useNavigate(); // Use useNavigate for navigation
+  useEffect(() => {
+    axios.get("http://localhost:8080/login").then((response) => {
+      if (response.data.loggedIn === false) {
+                navigate("/login");
+      }
+    });
+  });
 
   useEffect(() => {
     axios

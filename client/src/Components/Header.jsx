@@ -31,6 +31,11 @@ const Header = () => {
     });
   }, []);
 
+function test()
+{
+  alert("merge");
+}
+
   const handleLogout = () => {
     axios
       .post("http://localhost:8080/logout")
@@ -78,7 +83,7 @@ const Header = () => {
           ) : (
             <div>
               <MyBubblyLink text="Dasboard" to="/dashboard" />
-              <MyBubblyLink text="Logout" onClick={handleLogout} />
+              <MyBubblyLink text="Logout" onClick={test} />
               <button onClick={handleLogout}>Logout</button>
             </div>
             // For a consistent look, you might want to wrap this button in a `MyBubblyLink` component or style it similarly
