@@ -10,6 +10,7 @@ import Home from "./Pages/Home/Home";
 import Migrate from "./Pages/Migrate";
 import PasswordGenerator from "./Pages/PasswordGenerator";
 import EmailVerified from "./Pages/EmailVerified";
+import PasswordStrenghtTest from "./Components/PasswordStrenghtTest";
 
 function App() {
   const isLoggedIn = true; // Replace this with your actual authentication logic
@@ -23,7 +24,7 @@ function App() {
           <Route path="/password-generator" element={<PasswordGenerator />} />
           <Route
             path="/password-strength-test"
-            element={<PasswordGenerator />}
+            element={<PasswordStrenghtTest />}
           />
           <Route path="/migrate" element={<Migrate />} />
           <Route path="/contact" element={<Contact />} />

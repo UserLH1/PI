@@ -31,10 +31,10 @@ const Header = () => {
     });
   }, []);
 
-function test()
-{
-  alert("merge");
-}
+// function test()
+// {
+//   alert("merge");
+// }
 
   const handleLogout = () => {
     axios
@@ -83,7 +83,7 @@ function test()
           ) : (
             <div>
               <MyBubblyLink text="Dasboard" to="/dashboard" />
-              <MyBubblyLink text="Logout" onClick={test} />
+              {/* <MyBubblyLink text="Logout" to={handleLogout} /> */}
               <button onClick={handleLogout}>Logout</button>
             </div>
             // For a consistent look, you might want to wrap this button in a `MyBubblyLink` component or style it similarly

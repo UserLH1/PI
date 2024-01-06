@@ -59,7 +59,7 @@ async function sendMail(email, username) {
              style="background-color: #0d6efd; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
             Confirm Email
           </a>
-          <p>If you did not sign up for a Lock Box account, please ignore this email or <a href="mailto:support@lockbox.com">contact support</a>.</p>
+          <p>If you did not sign up for a Lock Box account, please ignore this email or <a href="mailto:lazeahoratiu@gmail.com">contact support</a>.</p>
           <p style="margin-top: 20px;">Cheers,</p>
           <p>The Lock Box Team</p>
         </div>
