@@ -1,0 +1,64 @@
+/* dashboard.css */
+.dashboard-container {
+    padding: 20px;
+  }
+  
+  .email-verification-alert {
+    position: absolute; /* Position it relative to its nearest positioned ancestor or to the body */
+    bottom: 20px; /* Distance from the top of the viewport */
+    right: 10px; /* Distance from the right of the viewport */
+    padding: 8px 16px;
+    background-color: #ffcc00; /* A noticeable color */
+    color: #333; /* Dark text for readability */
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    z-index: 1000; /* Make sure it's above other elements */
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    justify-content: center;
+  }
+  .close-alert-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Optionally, add an animation to draw attention to the message */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .email-verification-alert {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .password-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .password-table th, 
+  .password-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .password-table th {
+    background-color: #4c77af;
+    color: white;
+  }
+  
+  .password-actions {
+    margin-top: 20px;
+  }
+  
