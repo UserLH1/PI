@@ -6,25 +6,37 @@ import "../Styles/dashboard.css";
 
 function Dashboard() {
   const [isEmailVerified, setIsEmailVerified] = useState(null);
-  const [showAlert, setShowAlert] = useState(true); // State to control the visibility of the alert
+  const [passwords, setPasswords] = useState([]); // State to hold passwords
+  const [showAlert, setShowAlert] = useState(true);
 
-  const navigate = useNavigate(); // Use useNavigate for navigation
+  const navigate = useNavigate();
+
+  // Redirect if not logged in
   useEffect(() => {
     axios.get("http://localhost:8080/login").then((response) => {
       if (response.data.loggedIn === false) {
-                navigate("/login");
+        navigate("/login");
       }
     });
-  });
+  }, [navigate]);
 
+  // Fetch email verification status
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/dashboard")
+    axios.get("http://localhost:8080/dashboard").then((response) => {
+      setIsEmailVerified(response.data.is_verified === 1);
+    }).catch((error) => {
+      console.error("Error retrieving email verification status:", error);
+    });
+  }, []);
+
+  // Fetch passwords data
+  useEffect(() => {
+    axios.get("http://localhost:8080/getPasswords") // Update with the correct endpoint
       .then((response) => {
-        setIsEmailVerified(response.data.is_verified === 1);
+        setPasswords(response.data); // Set the passwords data to state
       })
       .catch((error) => {
-        console.error("Error retrieving email verification status:", error);
+        console.error("Error retrieving passwords data:", error);
       });
   }, []);
 
@@ -45,28 +57,33 @@ function Dashboard() {
             <button onClick={handleCloseAlert} className="close-alert-btn">&times;</button>
           </div>
         )}
+        
         {/* Table for passwords */}
         <table className="password-table">
           <thead>
             <tr>
-              <th>Website</th>
+              <th>Name</th>
+              <th>URL</th>
               <th>Username</th>
               <th>Password</th>
-              <th>Actions</th>
             </tr>
           </thead>
-          <tbody>{/* Password data will be rendered here */}</tbody>
+          <tbody>
+            {passwords.map((password, index) => (
+              <tr key={index}>
+                <td>{password.name}</td>
+                <td>{password.URL}</td>
+                <td>{password.username}</td>
+                <td>{password.password}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
 
-        {/* Buttons for password actions */}
         <div className="password-actions">
-          <Link
-            className="btn btn-default bg-light border w-100 my-2"
-            to="../addItem"
-          >
+          <Link className="btn btn-default bg-light border w-100 my-2" to="../addItem">
             Add Password
           </Link>
-          {/* Duplicate the above line for Edit and Delete buttons with appropriate classNames and paths */}
         </div>
       </div>
     </div>

@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import PasswordInputWithoutBar from "../Components/Auth/Password/PasswordInputWithoutBar";
+
 // window.addEventListener("beforeunload", (event) => {
 //   event.preventDefault();
 //   event.returnValue = "";

@@ -292,6 +292,25 @@ app.get("/dashboard", (req, res) => {
   });
 });
 
+app.get('/getPasswords', (req, res) => {
+  // Assuming you have authentication checks and user identification logic
+ // Example of getting user ID from the session
+
+  // Query the database for passwords where the user ID matches
+  const query = 'SELECT name, URL, username, password FROM password WHERE user_id = ?';
+  db.query(query, user_id, (err, results) => {
+    if (err) {
+      // Handle error
+      console.error("Database error:", err);
+      res.status(500).send("Error fetching passwords.");
+    } else {
+      // Send back the results
+      res.json(results);
+    }
+  });
+});
+
+
 // ... [remaining code] ...
 
 // app.get('/test', (req, res) => {

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../../LoginValidation";
 import Header from "../Header";
-import PasswordInput from "./Password/PasswordInput";
+import PasswordInputWithoutBar from "./Password/PasswordInputWithoutBar";
 
 axios.defaults.withCredentials = true;
 
@@ -88,7 +88,7 @@ function Login() {
                 <input name="password"  onChange={handleInput} type="password" placeholder="Enter Password"/>                
             </div> */}
             <div>
-              <PasswordInput
+              <PasswordInputWithoutBar
                 name="password"
                 handleInput={handleInput}
                 password={values.password}

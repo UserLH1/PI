@@ -10,7 +10,7 @@ import Home from "./Pages/Home/Home";
 import Migrate from "./Pages/Migrate";
 import PasswordGenerator from "./Pages/PasswordGenerator";
 import EmailVerified from "./Pages/EmailVerified";
-import PasswordStrenghtTest from "./Components/PasswordStrenghtTest";
+import PasswordStrenghtTest from "./Pages/PasswordStrenghtTest";
 
 function App() {
   const isLoggedIn = true; // Replace this with your actual authentication logic

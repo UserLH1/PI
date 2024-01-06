@@ -87,8 +87,9 @@ function PasswordGenerator() {
           return `none`;
       }
     };
+   
     setPasswordStrength({
-      score: createPassLabel,
+      score: createPassLabel(),
       timeToCrack:
         strength.crack_times_display.offline_slow_hashing_1e4_per_second,
     });
