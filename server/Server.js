@@ -172,11 +172,9 @@ app.post("/register", async (req, res) => {
   bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) {
       console.log("Error hashing password:", err.message);
-      return res
-        .status(500)
-        .json({
-          message: "Error while creating the account. Please try again.",
-        });
+      return res.status(500).json({
+        message: "Error while creating the account. Please try again.",
+      });
     }
 
     const sql =
@@ -192,11 +190,9 @@ app.post("/register", async (req, res) => {
             .status(400)
             .json({ message: `Email "${email}" is already taken` });
         } else {
-          return res
-            .status(500)
-            .json({
-              message: "Error while creating the account. Please try again.",
-            });
+          return res.status(500).json({
+            message: "Error while creating the account. Please try again.",
+          });
         }
       }
 
@@ -204,12 +200,10 @@ app.post("/register", async (req, res) => {
       try {
         const emailResult = await sendMail(email, username);
         console.log("Email sent...", emailResult);
-        res
-          .status(200)
-          .json({
-            message:
-              "Registration successful, please check your email to confirm your account.",
-          });
+        res.status(200).json({
+          message:
+            "Registration successful, please check your email to confirm your account.",
+        });
       } catch (error) {
         console.error("Error sending email:", error.message);
         res.status(500).json({ message: "Error sending confirmation email" });
@@ -246,13 +240,12 @@ app.get("/confirm/:encodedEmail", async (req, res) => {
       }
 
       // Redirect to the email-verified route in the React app
-      res.redirect('http://localhost:3000/email-verified');
+      res.redirect("http://localhost:3000/email-verified");
     });
   } catch (error) {
     res.status(400).send("Invalid or expired link.");
   }
 });
-
 
 app.post("/logout", (req, res) => {
   if (req.session) {
@@ -292,12 +285,13 @@ app.get("/dashboard", (req, res) => {
   });
 });
 
-app.get('/getPasswords', (req, res) => {
+app.get("/getPasswords", (req, res) => {
   // Assuming you have authentication checks and user identification logic
- // Example of getting user ID from the session
+  // Example of getting user ID from the session
 
   // Query the database for passwords where the user ID matches
-  const query = 'SELECT name, URL, username, password FROM password WHERE user_id = ?';
+  const query =
+    "SELECT name, URL, username, password FROM password WHERE user_id = ?";
   db.query(query, user_id, (err, results) => {
     if (err) {
       // Handle error
@@ -310,6 +304,38 @@ app.get('/getPasswords', (req, res) => {
   });
 });
 
+// Your server code
+
+// ...
+
+app.delete("/deletePassword/:id", (req, res) => {
+  const passwordId = req.params.id;
+  console.log(user_id);
+  console.log(passwordId);
+  // Assuming you have authentication checks and user identification logic
+  // Query to delete the password
+  const query = "DELETE FROM password WHERE id = ? AND user_id = ?";
+  db.query(query, [passwordId, user_id], (err, result) => {
+    if (err) {
+      // Handle error
+      console.error("Database error:", err);
+      res.status(500).send("Error deleting password.");
+    } else {
+      // Check if any row is actually deleted
+      if (result.affectedRows > 0) {
+        res.status(200).send("Password deleted successfully.");
+      } else {
+        res
+          .status(404)
+          .send(
+            "Password not found or you do not have permission to delete it."
+          );
+      }
+    }
+  });
+});
+
+// ...
 
 // ... [remaining code] ...
 

@@ -1,64 +1,96 @@
 /* dashboard.css */
 .dashboard-container {
-    padding: 20px;
+  max-width: 1200px; /* Adjust the width as needed */
+  margin: 2rem auto; /* Centers the container with a margin at the top and bottom */
+  background: #f7f7f7; /* Light background for the container */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the container */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Ensures that child elements do not overflow the rounded corners */
+}
+
+.email-verification-alert {
+  position: absolute; /* Position it relative to its nearest positioned ancestor or to the body */
+  bottom: 20px; /* Distance from the top of the viewport */
+  right: 10px; /* Distance from the right of the viewport */
+  padding: 8px 16px;
+  background-color: #ffcc00; /* A noticeable color */
+  color: #333; /* Dark text for readability */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  z-index: 1000; /* Make sure it's above other elements */
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  justify-content: center;
+}
+.close-alert-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Optionally, add an animation to draw attention to the message */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .email-verification-alert {
-    position: absolute; /* Position it relative to its nearest positioned ancestor or to the body */
-    bottom: 20px; /* Distance from the top of the viewport */
-    right: 10px; /* Distance from the right of the viewport */
-    padding: 8px 16px;
-    background-color: #ffcc00; /* A noticeable color */
-    color: #333; /* Dark text for readability */
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    z-index: 1000; /* Make sure it's above other elements */
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    justify-content: center;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .close-alert-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    background: transparent;
-    color: inherit;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  /* Optionally, add an animation to draw attention to the message */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  .email-verification-alert {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  
-  .password-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .password-table th, 
-  .password-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .password-table th {
-    background-color: #4c77af;
-    color: white;
-  }
-  
-  .password-actions {
-    margin-top: 20px;
-  }
-  
+}
+
+.email-verification-alert {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.password-table {
+  width: 100%;
+  margin: 0; /* Removes default margin */
+  border-collapse: collapse; /* Removes space between borders */
+  background-color: #fff; /* White background for the table */
+}
+
+.password-table th,
+.password-table td {
+  text-align: left; /* Aligns text to the left */
+  padding: 1rem; /* Adds padding inside the table cells */
+  border-bottom: 1px solid #ddd; /* Adds a border to each cell */
+}
+
+.password-table th {
+  background-color: #e9e9e9; /* Slightly darker background for the table header */
+  color: #333; /* Dark text for the header */
+}
+
+.password-table tr:hover {
+  background-color: #f1f1f1; /* Adds a hover effect to each row */
+}
+
+.password-actions {
+  padding: 1rem;
+  text-align: center; /* Center aligns the action buttons */
+}
+
+.password-actions .btn {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 4px; /* Slightly rounded corners for buttons */
+  border: none;
+  background-color: #5cb85c; /* Green background for buttons */
+  color: white;
+  cursor: pointer;
+  text-decoration: none; /* Removes underline from links */
+  display: inline-block; /* Allows buttons to sit side by side */
+}
+
+.password-actions .btn:hover {
+  background-color: #4cae4c; /* Darker green on hover */
+}

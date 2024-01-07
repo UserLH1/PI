@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import MyBubblyLink from "../Components/Effects/MyBubblyLink";
 import Header from "../Components/Header";
 import "../Styles/dashboard.css";
 
@@ -22,16 +24,20 @@ function Dashboard() {
 
   // Fetch email verification status
   useEffect(() => {
-    axios.get("http://localhost:8080/dashboard").then((response) => {
-      setIsEmailVerified(response.data.is_verified === 1);
-    }).catch((error) => {
-      console.error("Error retrieving email verification status:", error);
-    });
+    axios
+      .get("http://localhost:8080/dashboard")
+      .then((response) => {
+        setIsEmailVerified(response.data.is_verified === 1);
+      })
+      .catch((error) => {
+        console.error("Error retrieving email verification status:", error);
+      });
   }, []);
 
   // Fetch passwords data
   useEffect(() => {
-    axios.get("http://localhost:8080/getPasswords") // Update with the correct endpoint
+    axios
+      .get("http://localhost:8080/getPasswords") // Update with the correct endpoint
       .then((response) => {
         setPasswords(response.data); // Set the passwords data to state
       })
@@ -40,6 +46,21 @@ function Dashboard() {
       });
   }, []);
 
+  const handleDelete = (passwordId) => {
+    axios
+      .delete(`http://localhost:8080/deletePassword/${passwordId}`)
+      .then(() => {
+        // Remove the password from the state
+        setPasswords(
+          passwords.filter((password) => password.id !== passwordId)
+        );
+        toast.success("Password deleted successfully");
+      })
+      .catch((error) => {
+        console.error("Failed to delete password:", error);
+        toast.error("Error deleting password");
+      });
+  };
   // Function to hide the alert
   const handleCloseAlert = () => {
     setShowAlert(false);
@@ -52,12 +73,15 @@ function Dashboard() {
         {!isEmailVerified && showAlert && (
           <div className="email-verification-alert">
             <p>
-              Your email address has not been verified. Please check your email to verify it.
+              Your email address has not been verified. Please check your email
+              to verify it.
             </p>
-            <button onClick={handleCloseAlert} className="close-alert-btn">&times;</button>
+            <button onClick={handleCloseAlert} className="close-alert-btn">
+              &times;
+            </button>
           </div>
         )}
-        
+
         {/* Table for passwords */}
         <table className="password-table">
           <thead>
@@ -81,9 +105,9 @@ function Dashboard() {
         </table>
 
         <div className="password-actions">
-          <Link className="btn btn-default bg-light border w-100 my-2" to="../addItem">
-            Add Password
-          </Link>
+          <MyBubblyLink to="/addItem" text="Add a password" />
+
+          {/* <button onClick={() => handleDelete()}>Delete</button> */}
         </div>
       </div>
     </div>
