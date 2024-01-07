@@ -6,11 +6,12 @@ import Register from "./Components/Auth/Register";
 import NewItem from "./Components/NewItem";
 import Contact from "./Pages/Contact";
 import Dashboard from "./Pages/Dashboard";
+import EmailVerified from "./Pages/EmailVerified";
 import Home from "./Pages/Home/Home";
 import Migrate from "./Pages/Migrate";
 import PasswordGenerator from "./Pages/PasswordGenerator";
-import EmailVerified from "./Pages/EmailVerified";
-import PasswordStrenghtTest from "./Pages/PasswordStrenghtTest";
+import PasswordStrenghtTest from "./Pages/PasswordTest/PasswordStrenghtTest";
+import PwnedCheck from "./Pages/Pwned";
 
 function App() {
   const isLoggedIn = true; // Replace this with your actual authentication logic
@@ -27,6 +28,7 @@ function App() {
             element={<PasswordStrenghtTest />}
           />
           <Route path="/migrate" element={<Migrate />} />
+          <Route path="/pwned" element={<PwnedCheck />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

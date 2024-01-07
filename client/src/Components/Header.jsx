@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation after logout
+import React, { useEffect, useState } from "react";
 import { BubblyLink } from "react-bubbly-transitions";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation after logout
 import "../Styles/Bubbles.css";
 
 const MyBubblyLink = ({ to = "", text = "", imageSrc = "", onClick }) => (
@@ -31,10 +31,10 @@ const Header = () => {
     });
   }, []);
 
-// function test()
-// {
-//   alert("merge");
-// }
+  // function test()
+  // {
+  //   alert("merge");
+  // }
 
   const handleLogout = () => {
     axios
@@ -69,7 +69,7 @@ const Header = () => {
             to="/password-strength-test"
             text="Password Strength Test"
           />
-          <MyBubblyLink to="/migrate" text="Migrate" />
+          <MyBubblyLink to="/pwned" text="Breach Check" />
           <MyBubblyLink to="/contact" text="Contact" />
         </nav>
 
