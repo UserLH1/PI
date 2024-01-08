@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Heading from "../Pages/Heading";
 import Header from "./Header";
-import PasswordInputWithoutBar from "../Components/Auth/Password/PasswordInputWithoutBar";
-
 // window.addEventListener("beforeunload", (event) => {
 //   event.preventDefault();
 //   event.returnValue = "";
@@ -44,11 +43,11 @@ function NewItem() {
     <div>
       <div>
         <Header />
+        <Heading title="Add a password" />
       </div>
       <div className="App">
         <div className="addItem">
           <form onSubmit={handleSubmit} action="">
-            <h1>Add a password</h1>
             <input
               name="name"
               onChange={handleInput}
