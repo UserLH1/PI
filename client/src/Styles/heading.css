@@ -1,0 +1,27 @@
+.page-heading {
+  font-size: 2.5em; /* Large text size for heading */
+  color: #ffffff; /* White color text for visibility against the dark background */
+  text-align: center; /* Center the heading text */
+  margin-top: 20px; /* Space at the top */
+  margin-bottom: 10px; /* Space below before the content starts */
+  font-weight: bold; /* Make the font bold */
+  position: relative; /* For pseudo-element positioning */
+}
+
+.page-heading::after {
+  content: "";
+  display: block;
+  width: 100px; /* Length of the underline */
+  height: 4px; /* Thickness of the underline */
+  background: #4aaee8; /* Choose a color for the underline */
+  margin: 0 auto; /* Center the block */
+  margin-top: 10px; /* Space between text and underline */
+}
+
+.subheading {
+  font-size: 1.2em;
+  color: #c0c0c0; /* Lighter color for subheading */
+  text-align: center;
+  margin-bottom: 10px; /* More space below the subheading */
+  font-weight: normal; /* Less emphasis on subheading */
+}

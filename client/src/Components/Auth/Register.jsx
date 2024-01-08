@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Heading from "../../Pages/Heading";
 import validation from "../../RegisterValidation";
 import Header from "../Header";
 import PasswordInput from "./Password/PasswordInput";
-
 function Register() {
   const [values, setValues] = useState({
     username: "",
@@ -70,6 +70,7 @@ function Register() {
     <div>
       <div>
         <Header />
+        <Heading title="Sign up" />
       </div>
       {errorMessage && (
         <div className="custom-alert">
@@ -79,7 +80,6 @@ function Register() {
       )}
       <div className="App">
         <div className="addItem">
-          <h1>Registration:</h1>
           <form onSubmit={handleSubmit} action="">
             <div>
               <label htmlFor="username">

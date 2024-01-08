@@ -20,14 +20,14 @@
   border-radius: 20px;
   margin-top: 20px;
   background-color: lightblue;
-  padding: 20px; /* Add padding inside the container */
+  padding: 50px; /* Add padding inside the container */
   box-sizing: border-box; /* To include padding in the width calculation */
   font-family: "Arial", sans-serif;
 }
 
 .addItem input {
   width: 80%; /* Adjust width to not touch the container edges */
-  height: 40px;
+  height: 60px;
   border: none;
   border-radius: 7px;
   margin: 10px 0; /* Only add margin top and bottom */
@@ -37,8 +37,8 @@
 }
 
 .addItem button {
-  width: 80%; /* Adjust width to not touch the container edges */
-  height: 40px;
+  width: 90%; /* Adjust width to not touch the container edges */
+  height: 50px;
   border: none;
   border-radius: 7px;
   margin: 10px 0; /* Only add margin top and bottom */
@@ -153,12 +153,13 @@
 
 .toggle-password-visibility {
   position: absolute; /* Position the icon absolutely within the container */
-  top: 15px; /* Align the top of the icon with the top of the container */
-  right: 20px; /* Adjust the right position based on the container's size */
+  top: 6px; /* Align the top of the icon with the top of the container */
+  right: 50px; /* Adjust the right position based on the container's size */
   height: 100%; /* Make the icon's height match the input field */
   display: flex; /* Use flex to center the icon vertically */
   align-items: center;
   cursor: pointer; /* Change the cursor to indicate the icon is clickable */
+  bottom: 25px;
   color: #000000;
 }
 .progress,

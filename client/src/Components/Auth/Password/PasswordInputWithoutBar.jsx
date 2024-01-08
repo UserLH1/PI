@@ -21,7 +21,7 @@ const PasswordInput = ({ name, handleInput, password }) => {
       >
         {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
       </span>
-          </div>
+    </div>
   );
 };
 

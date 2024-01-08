@@ -83,6 +83,8 @@
 // export default PwnedCheck;
 import React, { useState } from "react";
 import Header from "../Components/Header";
+import Heading from "./Heading";
+
 import "../Styles/pwned.css";
 
 const PwnedCheck = () => {
@@ -107,12 +109,11 @@ const PwnedCheck = () => {
   return (
     <div>
       <Header />
-      <div className="page-heading-container">
-        <h1 className="page-heading">Breach Checker</h1>
-        <p className="subheading">
-          Verify if your email has been compromised globally.
-        </p>
-      </div>
+      <Heading
+        title="Breach Checker"
+        subtitle="Verify if your email has been compromised globally."
+      />
+
       <div className="page-container">
         <form onSubmit={handleSubmit} className="pwned-form">
           <input

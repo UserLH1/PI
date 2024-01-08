@@ -337,8 +337,41 @@ app.delete("/deletePassword/:id", (req, res) => {
 
 // ...
 
-// ... [remaining code] ...
+// Contact form///////////////////////////
 
+app.post("/send-email", async (req, res) => {
+  const { name, email, message } = req.body;
+
+  try {
+    const accessToken = await oAuth2Client.getAccessToken();
+
+    const transport = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        type: "OAuth2",
+        user: "lazeahoratiu@gmail.com", // Your Gmail address
+        clientId: CLIENT_ID,
+        clientSecret: CLIENT_SECRET,
+        refreshToken: REFRESH_TOKEN,
+        accessToken: accessToken.token, // Access token
+      },
+    });
+
+    const mailOptions = {
+      from: email, // The email of the person who filled the form
+      to: "lazeahoratiu@gmail.com", // Your email
+      subject: `New message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    };
+
+    const result = await transport.sendMail(mailOptions);
+    console.log("Email sent: " + result.response);
+    res.status(200).send("Email successfully sent");
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).send("Error sending email");
+  }
+});
 // app.get('/test', (req, res) => {
 //   console.log("hello world");
 //   res.send("Hello World");

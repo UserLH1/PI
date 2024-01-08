@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import zxcvbn from "zxcvbn";
 import Header from "../../Components/Header";
 import "../../Styles/password-generator.css";
-import PasswordFAQ from "./PasswordFAQ";
 
 function PasswordStrengthTest() {
   const [password, setPassword] = useState("");
@@ -45,23 +44,22 @@ function PasswordStrengthTest() {
           placeholder="Type your password"
         />
         <div className="password-strength-info">
-          <div className="stats">
-            <strong>Your password strength:</strong> {passwordStrength.score}
-          </div>
-          <div className="stats">
-            <strong>Time to crack:</strong> {passwordStrength.timeToCrack}
-          </div>
-          <div className="stats">
-            <strong>Feedback:</strong> {passwordStrength.feedback}
-          </div>
+          <span className="password-strength-score">
+            Your password strength: {passwordStrength.score}
+          </span>
+          <span className="password-strength-feedback">
+            Feedback: {passwordStrength.feedback}
+          </span>
           {passwordStrength.warnings && (
-            <div className="stats">
-              <strong>Warnings:</strong> {passwordStrength.warnings}
-            </div>
+            <span className="password-strength-warnings">
+              Warnings: {passwordStrength.warnings}
+            </span>
           )}
+          <span className="password-strength-time">
+            Time to crack: {passwordStrength.timeToCrack}
+          </span>
         </div>
       </div>
-      <PasswordFAQ />
     </div>
   );
 }

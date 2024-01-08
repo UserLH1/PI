@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../../LoginValidation";
+import Heading from "../../Pages/Heading";
 import Header from "../Header";
 import PasswordInputWithoutBar from "./Password/PasswordInputWithoutBar";
 
@@ -32,7 +33,7 @@ function Login() {
       console.log("utilizator trimis");
       axios
         .post("http://localhost:8080/login", values)
-        .then((res) => {  
+        .then((res) => {
           console.log(res.data);
           if (res.data === "Success") {
             navigate("/dashboard");
@@ -59,10 +60,10 @@ function Login() {
     <div>
       <div>
         <Header />
+        <Heading title="Login" />
       </div>
       <div className="App">
         <div className="addItem">
-          <h1>Login:</h1>
           <form action="" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email">
