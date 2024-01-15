@@ -82,7 +82,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ["GET", "POST"],
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
     credentials: true,
   })
 );
@@ -291,7 +291,7 @@ app.get("/getPasswords", (req, res) => {
 
   // Query the database for passwords where the user ID matches
   const query =
-    "SELECT name, URL, username, password FROM password WHERE user_id = ?";
+    "SELECT id, name, URL, username, password FROM password WHERE user_id = ?";
   db.query(query, user_id, (err, results) => {
     if (err) {
       // Handle error
