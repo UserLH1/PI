@@ -94,3 +94,37 @@
 .password-actions .btn:hover {
   background-color: #4cae4c; /* Darker green on hover */
 }
+/* dashboard.css */
+
+/* Stil general pentru butoane */
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Stil pentru butoanele specifice */
+.edit-button {
+  background-color: #2a494f86;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.import-export-buttons {
+  background-color: #17a2b8;
+}
+
+.file-input {
+  margin: 10px 0;
+}

@@ -82,7 +82,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
     credentials: true,
   })
 );
@@ -333,6 +333,35 @@ app.delete("/deletePassword/:id", (req, res) => {
       }
     }
   });
+});
+app.put("/updatePassword/:id", (req, res) => {
+  const passwordId = req.params.id;
+  const { name, URL, username, password } = req.body;
+
+  const query =
+    "UPDATE password SET name = ?, URL = ?, username = ?, password = ? WHERE id = ? AND user_id = ?";
+  db.query(
+    query,
+    [name, URL, username, password, passwordId, user_id],
+    (err, result) => {
+      if (err) {
+        // Gestionarea erorilor
+        console.error("Database error:", err);
+        res.status(500).send("Error updating password.");
+      } else {
+        // Verifică dacă s-a făcut actualizarea
+        if (result.affectedRows > 0) {
+          res.status(200).send("Password updated successfully.");
+        } else {
+          res
+            .status(404)
+            .send(
+              "Password not found or you do not have permission to update it."
+            );
+        }
+      }
+    }
+  );
 });
 
 // ...

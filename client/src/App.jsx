@@ -12,7 +12,7 @@ import Migrate from "./Pages/Migrate";
 import PasswordGenerator from "./Pages/PasswordGenerator";
 import PasswordStrenghtTest from "./Pages/PasswordTest/PasswordStrenghtTest";
 import PwnedCheck from "./Pages/Pwned";
-
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const isLoggedIn = true; // Replace this with your actual authentication logic
 
