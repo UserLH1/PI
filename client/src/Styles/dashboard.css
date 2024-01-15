@@ -125,6 +125,41 @@
   background-color: #17a2b8;
 }
 
+/* dashboard.css */
+
+/* Stil pentru containerul de încărcare fișiere */
+.file-upload-container {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px dashed #007bff;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+/* Stil pentru inputul de încărcare a fișierului */
 .file-input {
-  margin: 10px 0;
+  display: none; /* Ascunde inputul default */
+}
+
+/* Stil pentru eticheta customizată a inputului */
+.file-input-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.file-input-label:hover {
+  background-color: #0056b3;
+}
+
+/* Stil pentru textul descriptiv al containerului */
+.file-upload-description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6c757d;
 }

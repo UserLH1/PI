@@ -10,6 +10,8 @@ function Dashboard() {
   const [passwords, setPasswords] = useState([]); // State to hold passwords
   const [showAlert, setShowAlert] = useState(true);
   const [editingPasswordId, setEditingPasswordId] = useState(null);
+  const [fileName, setFileName] = useState("");
+
   const [formData, setFormData] = useState({
     // Structura inițială a datelor formularului, de ex.:
     name: "",
@@ -189,8 +191,13 @@ function Dashboard() {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileUpload = (event) => {
-    setSelectedFile(event.target.files[0]);
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+      setFileName(file.name);
+    }
   };
+
   const importPasswords = () => {
     if (selectedFile) {
       const reader = new FileReader();
@@ -307,18 +314,32 @@ function Dashboard() {
           >
             Add a password
           </button>
+
+          <div className="file-upload-container">
+            {fileName === "" ? (
+              <label htmlFor="file-upload" className="file-input-label">
+                Choose a file
+              </label>
+            ) : (
+              <div className="file-upload-description">
+                File selected: {fileName}
+              </div>
+            )}
+            <input
+              id="file-upload"
+              type="file"
+              accept=".csv"
+              onChange={handleFileUpload}
+              className="file-input"
+            />
+          </div>
+
           <button
             onClick={exportToCSV}
             className="button import-export-buttons"
           >
             Export Passwords to CSV
           </button>
-          <input
-            type="file"
-            accept=".csv"
-            onChange={handleFileUpload}
-            className="file-input"
-          />
           <button
             onClick={importPasswords}
             className="button import-export-buttons"
